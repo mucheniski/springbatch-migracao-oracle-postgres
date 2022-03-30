@@ -22,7 +22,12 @@ public class DataSourceConfig {
     public DataSource origemDataSource() {
         return DataSourceBuilder.create().build();
     }
-    
+
+    @Bean
+    @ConfigurationProperties(prefix = "destino.datasource")
+    public DataSource destinoDataSource() {
+        return DataSourceBuilder.create().build();
+    }
     
     
 }
