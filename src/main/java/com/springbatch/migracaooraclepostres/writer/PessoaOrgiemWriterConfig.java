@@ -1,6 +1,6 @@
 package com.springbatch.migracaooraclepostres.writer;
 
-import com.springbatch.migracaooraclepostres.domain.Pessoa;
+import com.springbatch.migracaooraclepostres.domain.PessoaOrigem;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class PessoaOrgiemWriterConfig {
 
     @Bean
-    public ItemWriter<Pessoa> jdbcCursorWriter() {
+    public ItemWriter<PessoaOrigem> jdbcCursorWriter() {
         return itens -> itens.forEach(System.out::println);
     }
 
