@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class PessoaOrigemReaderConfig {
 
     @Bean
-    JdbcCursorItemReader<Pessoa> pessoaOrigemReader(@Qualifier("appDataSource") DataSource dataSource){
+    JdbcCursorItemReader<Pessoa> pessoaOrigemReader(@Qualifier("origemDataSource") DataSource dataSource){
         return new JdbcCursorItemReaderBuilder<Pessoa>()
                 .name("pessoaOrigemReader")
                 .dataSource(dataSource)

@@ -25,7 +25,7 @@ Connect to database
    connect sys as sysdba;  
    password: Oradoc_db1  
 
-Insert the commands
+Insert the commands  
    alter session set "_ORACLE_SCRIPT"=true;  
    create user developer identified by developer;  
    GRANT ALL PRIVILEGES TO developer;  
