@@ -46,7 +46,7 @@ https://atitudereflexiva.wordpress.com/2020/03/03/spring-batch-trabalhando-com-m
 # Postgres  
 logar no banco postgres  
 ~~~
-docker exec -it postgresdatabase psql -U postgres
+docker exec -it postgresdatabase psql -U developer
 ~~~  
 
 listar e usar os databases  
@@ -54,3 +54,6 @@ listar e usar os databases
 \list  
 \connect database_name
 ~~~
+mostrar todos no dbeaver  
+On the connection, right-click -> Edit connection -> Connection settings -> on the tabbed panel, select PostgreSQL, check the box Show all databases.  
+![](/img/showalldatabasespostgres.png)
