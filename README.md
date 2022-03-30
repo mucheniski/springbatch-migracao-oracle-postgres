@@ -1,4 +1,4 @@
-# spring-batch-oracledb  
+# springbatch-migracao-oracle-postgres  
 
 Overview Spring Batch  
 https://giuliana-bezerra.medium.com/spring-batch-para-desenvolvimento-de-jobs-1674ec5b9a20#:~:text=Arquitetura%20Spring%20Batch&text=Um%20job%20no%20Spring%20Batch,que%20possuem%20uma%20l%C3%B3gica%20pr%C3%B3pria.&text=Job%20Repository%3A%20Mant%C3%A9m%20o%20estado,os%20outros%20componentes%20da%20solu%C3%A7%C3%A3o.  
