@@ -1,6 +1,6 @@
 package com.springbatch.migracaooraclepostres.reader;
 
-import com.springbatch.migracaooraclepostres.domain.PessoaOrigem;
+import com.springbatch.migracaooraclepostres.domain.Pessoa;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,21 +16,21 @@ import java.sql.SQLException;
 public class PessoaOrigemReaderConfig {
 
     @Bean
-    JdbcCursorItemReader<PessoaOrigem> pessoaOrigemReader(@Qualifier("appDataSource") DataSource dataSource){
-        return new JdbcCursorItemReaderBuilder<PessoaOrigem>()
+    JdbcCursorItemReader<Pessoa> pessoaOrigemReader(@Qualifier("appDataSource") DataSource dataSource){
+        return new JdbcCursorItemReaderBuilder<Pessoa>()
                 .name("pessoaOrigemReader")
                 .dataSource(dataSource)
-                .sql("select * from pessoa_origem")
+                .sql("select * from appspringbatch.pessoa_origem")
                 .rowMapper(mapeadorColunas())
                 .build();
     }
 
-    private RowMapper<PessoaOrigem> mapeadorColunas() {
+    private RowMapper<Pessoa> mapeadorColunas() {
 
-        return new RowMapper<PessoaOrigem>() {
+        return new RowMapper<Pessoa>() {
             @Override
-            public PessoaOrigem mapRow(ResultSet rs, int rowNum) throws SQLException {
-                PessoaOrigem pessoa = new PessoaOrigem();
+            public Pessoa mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Pessoa pessoa = new Pessoa();
                 pessoa.setId(rs.getInt("id"));
                 pessoa.setNome(rs.getString("nome"));
                 return pessoa;

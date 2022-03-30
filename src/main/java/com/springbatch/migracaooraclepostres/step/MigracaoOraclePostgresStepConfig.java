@@ -1,6 +1,6 @@
 package com.springbatch.migracaooraclepostres.step;
 
-import com.springbatch.migracaooraclepostres.domain.PessoaOrigem;
+import com.springbatch.migracaooraclepostres.domain.Pessoa;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemReader;
@@ -17,14 +17,15 @@ public class MigracaoOraclePostgresStepConfig {
 
     @Bean
     public Step migracaoOraclePostgresStep(
-            ItemReader<PessoaOrigem> pessoaOrigemReader,
-            ItemWriter<PessoaOrigem> pessoaOrigemWriter
+            ItemReader<Pessoa> pessoaOrigemReader,
+            ItemWriter<Pessoa> pessoaDestinoWriter
+//            ItemWriter<Pessoa> pessoaOrigemWriter
     ){
         return stepBuilderFactory
                 .get("migracaoOraclePostgresStep")
-                .<PessoaOrigem, PessoaOrigem>chunk(1)
+                .<Pessoa, Pessoa>chunk(1)
                 .reader(pessoaOrigemReader)
-                .writer(pessoaOrigemWriter)
+                .writer(pessoaDestinoWriter)
                 .build();
     }
 
