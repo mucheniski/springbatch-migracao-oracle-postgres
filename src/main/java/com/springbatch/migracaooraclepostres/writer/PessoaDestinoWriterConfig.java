@@ -15,9 +15,9 @@ import java.sql.SQLException;
 @Configuration
 public class PessoaDestinoWriterConfig {
 
-    String sqlInsert = " INSERT INTO appspringbatch.pessoa_destino\n" +
+    String sqlInsert = " INSERT INTO public.pessoa_destino\n" +
                         " (id, nome)\n" +
-                        " VALUES(?, ?) ";
+                        " VALUES(?, ?)\n";
 
     @Bean
     public JdbcBatchItemWriter<Pessoa> pessoaDestinoWriter(@Qualifier("appDataSource") DataSource dataSource){

@@ -26,6 +26,7 @@ public class MigracaoOraclePostgresStepConfig {
                 .<Pessoa, Pessoa>chunk(1)
                 .reader(pessoaOrigemReader)
                 .writer(pessoaDestinoWriter)
+//                .writer(pessoaOrigemWriter)
                 .build();
     }
 

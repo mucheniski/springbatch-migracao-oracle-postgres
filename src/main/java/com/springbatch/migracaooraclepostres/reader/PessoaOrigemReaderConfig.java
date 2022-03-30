@@ -20,7 +20,7 @@ public class PessoaOrigemReaderConfig {
         return new JdbcCursorItemReaderBuilder<Pessoa>()
                 .name("pessoaOrigemReader")
                 .dataSource(dataSource)
-                .sql("select * from appspringbatch.pessoa_origem")
+                .sql("select * from pessoa_origem")
                 .rowMapper(mapeadorColunas())
                 .build();
     }
