@@ -31,8 +31,8 @@ public class PessoaOrigemReaderConfig {
             @Override
             public Pessoa mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Pessoa pessoa = new Pessoa();
-                pessoa.setId(rs.getInt("id"));
-                pessoa.setNome(rs.getString("nome"));
+                pessoa.setId(rs.getInt("pk_pessoa"));
+                pessoa.setNome(rs.getString("nm_pessoa"));
                 return pessoa;
             }
         };
