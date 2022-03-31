@@ -3,9 +3,11 @@ package com.springbatch.migracaooraclepostres.destino.domain;
 import lombok.Data;
 
 @Data
-public class PessoaDestino {
+public class Produto {
 
     private Integer id;
-    private String nome;
+    private String descricao;
+    private Double valor;
+    private Seguradora seguradora;
 
 }
