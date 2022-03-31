@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.springbatch</groupId>
-	<artifactId>migracao-oracle-postres</artifactId>
+	<artifactId>migracao-oracle-postgres</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>migracao-oracle-postres</name>
+	<name>migracao-oracle-postgres</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
