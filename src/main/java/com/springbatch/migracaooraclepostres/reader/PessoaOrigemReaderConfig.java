@@ -1,41 +1,30 @@
 package com.springbatch.migracaooraclepostres.reader;
 
-import com.springbatch.migracaooraclepostres.domain.Pessoa;
-import org.springframework.batch.item.database.JdbcCursorItemReader;
-import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuilder;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.springbatch.migracaooraclepostres.origem.domain.PessoaOrigem;
+import org.springframework.batch.item.database.JpaPagingItemReader;
+import org.springframework.batch.item.database.builder.JpaPagingItemReaderBuilder;
+import org.springframework.batch.item.database.orm.JpaNamedQueryProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.core.RowMapper;
 
-import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.persistence.EntityManagerFactory;
 
 @Configuration
 public class PessoaOrigemReaderConfig {
 
-    @Bean
-    JdbcCursorItemReader<Pessoa> pessoaOrigemReader(@Qualifier("origemDataSource") DataSource dataSource){
-        return new JdbcCursorItemReaderBuilder<Pessoa>()
-                .name("pessoaOrigemReader")
-                .dataSource(dataSource)
-                .sql("select * from pessoa_origem")
-                .rowMapper(mapeadorColunas())
+    @Bean(destroyMethod = "")
+    public JpaPagingItemReader<PessoaOrigem> buscarPessoasReader(EntityManagerFactory entityManagerFactory) {
+
+        JpaNamedQueryProvider<PessoaOrigem> jpaNamedQueryProvider = new JpaNamedQueryProvider<PessoaOrigem>();
+        jpaNamedQueryProvider.setEntityClass(PessoaOrigem.class);
+        jpaNamedQueryProvider.setNamedQuery("buscarPessoas");
+
+        return  new JpaPagingItemReaderBuilder<PessoaOrigem>()
+                .name("buscarPessoasReader")
+                .queryProvider(jpaNamedQueryProvider)
+                .entityManagerFactory(entityManagerFactory)
+                // set other properties on the reader
                 .build();
-    }
-
-    private RowMapper<Pessoa> mapeadorColunas() {
-
-        return new RowMapper<Pessoa>() {
-            @Override
-            public Pessoa mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Pessoa pessoa = new Pessoa();
-                pessoa.setId(rs.getInt("pk_pessoa"));
-                pessoa.setNome(rs.getString("nm_pessoa"));
-                return pessoa;
-            }
-        };
 
     }
 
