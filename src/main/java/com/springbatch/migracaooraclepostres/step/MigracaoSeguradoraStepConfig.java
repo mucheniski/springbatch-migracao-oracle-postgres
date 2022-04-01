@@ -1,7 +1,6 @@
 package com.springbatch.migracaooraclepostres.step;
 
 import com.springbatch.migracaooraclepostres.destino.domain.Seguradora;
-import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
 import com.springbatch.migracaooraclepostres.origem.domain.SeguradoraOrigem;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;

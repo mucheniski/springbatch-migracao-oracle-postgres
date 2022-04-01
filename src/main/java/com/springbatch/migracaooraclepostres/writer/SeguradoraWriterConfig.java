@@ -24,37 +24,37 @@ public class SeguradoraWriterConfig {
                                 " (id, nome_fantasia, cidade, estado, matriz_id)\n" +
                                 " VALUES(?, ?, ?, ?, ?)\n";
 
-//    @Bean
-//    public JdbcBatchItemWriter<Seguradora> seguradoraWriter(@Qualifier("destinoDataSource") DataSource dataSource){
-//        return new JdbcBatchItemWriterBuilder<Seguradora>()
-//                .dataSource(dataSource)
-//                .sql(sqlInsertSeguradora)
-//                .itemPreparedStatementSetter(setarCampos())
-//                .build();
-//    }
-//
-//    private ItemPreparedStatementSetter<Seguradora> setarCampos() {
-//        return new ItemPreparedStatementSetter<Seguradora>() {
-//            @Override
-//            public void setValues(Seguradora seguradora, PreparedStatement preparedStatement) throws SQLException {
-//                preparedStatement.setInt(1, seguradora.getId());
-//                preparedStatement.setString(2, seguradora.getNomeFantasia());
-//                preparedStatement.setString(3, seguradora.getCidade());
-//                preparedStatement.setString(4, seguradora.getEstado());
-//                preparedStatement.setInt(5, seguradora.getMatrizId());
-//            }
-//        };
-//    }
+    @Bean
+    public JdbcBatchItemWriter<Seguradora> seguradoraWriter(@Qualifier("destinoDataSource") DataSource dataSource){
+        return new JdbcBatchItemWriterBuilder<Seguradora>()
+                .dataSource(dataSource)
+                .sql(sqlInsertSeguradora)
+                .itemPreparedStatementSetter(setarCampos())
+                .build();
+    }
+
+    private ItemPreparedStatementSetter<Seguradora> setarCampos() {
+        return new ItemPreparedStatementSetter<Seguradora>() {
+            @Override
+            public void setValues(Seguradora seguradora, PreparedStatement preparedStatement) throws SQLException {
+                preparedStatement.setInt(1, seguradora.getId());
+                preparedStatement.setString(2, seguradora.getNomeFantasia());
+                preparedStatement.setString(3, seguradora.getCidade());
+                preparedStatement.setString(4, seguradora.getEstado());
+                preparedStatement.setInt(5, seguradora.getMatrizId());
+            }
+        };
+    }
 
 
 
     /**
      * Usado apenas para testar se os dados estao sendo retornados da base origem corretamente
      */
-    @Bean
-    public ItemWriter<Seguradora> seguradoraWriter() {
-        log.info("==========DADOS DAS SEGURADORAS==========");
-        return itens -> itens.forEach(System.out::println);
-    }
+//    @Bean
+//    public ItemWriter<Seguradora> seguradoraWriter() {
+//        log.info("==========DADOS DAS SEGURADORAS==========");
+//        return itens -> itens.forEach(System.out::println);
+//    }
 
 }

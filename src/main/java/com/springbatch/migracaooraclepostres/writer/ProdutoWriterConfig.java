@@ -25,7 +25,7 @@ public class ProdutoWriterConfig {
                               " VALUES(?, ?, ?, ?);\n";
 
     @Bean
-    public JdbcBatchItemWriter<Produto> dadosCorretorWriter(@Qualifier("destinoDataSource") DataSource dataSource){
+    public JdbcBatchItemWriter<Produto> produtoWriter(@Qualifier("destinoDataSource") DataSource dataSource){
         return new JdbcBatchItemWriterBuilder<Produto>()
                 .dataSource(dataSource)
                 .sql(sqlInsertProduto)

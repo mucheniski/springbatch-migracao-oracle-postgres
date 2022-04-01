@@ -1,7 +1,6 @@
 package com.springbatch.migracaooraclepostres.reader;
 
 import com.springbatch.migracaooraclepostres.origem.domain.CorretorOrigem;
-import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;

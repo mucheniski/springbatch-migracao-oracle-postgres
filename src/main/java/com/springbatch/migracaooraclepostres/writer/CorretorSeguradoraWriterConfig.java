@@ -1,6 +1,7 @@
 package com.springbatch.migracaooraclepostres.writer;
 
 import com.springbatch.migracaooraclepostres.destino.domain.Corretor;
+import com.springbatch.migracaooraclepostres.destino.domain.CorretorSeguradora;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.ItemPreparedStatementSetter;
@@ -13,34 +14,30 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Slf4j
 @Configuration
-public class CorretorWriterConfig {
+public class CorretorSeguradoraWriterConfig {
 
-    String sqlInsertCorretor = " INSERT INTO public.corretor\n" +
-                        " (id, nome, cpf)\n" +
-                        " VALUES(?, ?, ?)";
+    String sqlInsertCorretorSeguradora = " INSERT INTO public.corretor_seguradora\n" +
+                                         " (id_corretor, id_seguradora)\n" +
+                                         " VALUES(?, ?)\n";
 
     @Bean
-    public JdbcBatchItemWriter<Corretor> corretorWriter(@Qualifier("destinoDataSource") DataSource dataSource){
-        return new JdbcBatchItemWriterBuilder<Corretor>()
+    public JdbcBatchItemWriter<CorretorSeguradora> corretorSeguradoraWriter(@Qualifier("destinoDataSource") DataSource dataSource){
+        return new JdbcBatchItemWriterBuilder<CorretorSeguradora>()
                 .dataSource(dataSource)
-                .sql(sqlInsertCorretor)
+                .sql(sqlInsertCorretorSeguradora)
                 .itemPreparedStatementSetter(setarCampos())
                 .build();
     }
 
-    private ItemPreparedStatementSetter<Corretor> setarCampos() {
-        return new ItemPreparedStatementSetter<Corretor>() {
+    private ItemPreparedStatementSetter<CorretorSeguradora> setarCampos() {
+        return new ItemPreparedStatementSetter<CorretorSeguradora>() {
             @Override
-            public void setValues(Corretor corretor, PreparedStatement preparedStatement) throws SQLException {
-                preparedStatement.setInt(1, corretor.getId());
-                preparedStatement.setString(2, corretor.getNome());
-                preparedStatement.setString(3, corretor.getCpf());
+            public void setValues(CorretorSeguradora corretorSeguradora, PreparedStatement preparedStatement) throws SQLException {
+                preparedStatement.setInt(1, corretorSeguradora.getIdCorretor());
+                preparedStatement.setInt(2, corretorSeguradora.getIdSeguradora());
             }
         };
     }
@@ -50,7 +47,7 @@ public class CorretorWriterConfig {
      * Usado apenas para testar se os dados estao sendo retornados da base origem corretamente
      */
 //    @Bean
-//    public ItemWriter<Corretor> corretorWriter() {
+//    public ItemWriter<CorretorSeguradora> corretorSeguradoraWriter() {
 //        log.info("==========DADOS DOS CORRETORES==========");
 //        return itens -> itens.forEach(System.out::println);
 //    }

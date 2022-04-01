@@ -1,9 +1,7 @@
 package com.springbatch.migracaooraclepostres.processor;
 
 import com.springbatch.migracaooraclepostres.destino.domain.Corretor;
-import com.springbatch.migracaooraclepostres.destino.domain.Seguradora;
 import com.springbatch.migracaooraclepostres.origem.domain.CorretorOrigem;
-import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

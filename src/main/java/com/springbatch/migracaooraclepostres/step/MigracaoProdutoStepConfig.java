@@ -1,7 +1,6 @@
 package com.springbatch.migracaooraclepostres.step;
 
 import com.springbatch.migracaooraclepostres.destino.domain.Produto;
-import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
 import com.springbatch.migracaooraclepostres.origem.domain.ProdutoOrigem;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;

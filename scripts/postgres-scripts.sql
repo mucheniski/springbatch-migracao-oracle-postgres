@@ -1,3 +1,11 @@
+
+-- Limpar base destino
+delete from produto;
+delete from corretor_seguradora;
+delete from seguradora;
+delete from corretor;
+
+
 -- public.pessoa_destino definition
 
 -- Drop table
