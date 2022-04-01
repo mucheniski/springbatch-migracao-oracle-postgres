@@ -18,6 +18,7 @@ public class DadosOrigemReaderConfig {
     String sqlSelect = "SELECT CORRET_SEG_PROD.PK_CORRETOR,\n" +
             "\t   CORRET_SEG_PROD.NM_CORRETOR,\n" +
             "\t   CORRET_SEG_PROD.CPF_CORRETOR,\n" +
+            "\t   CORRET_SEG_PROD.COD_PRODUTO,\n" +
             "\t   CORRET_SEG_PROD.DSC_PRODUTO,\n" +
             "\t   CORRET_SEG_PROD.VLR_PRODUTO,\n" +
             "\t   CORRET_SEG_PROD.PK_SEGURADORA CORRETOR_PK_SEGURADORA,\n" +
@@ -53,6 +54,7 @@ public class DadosOrigemReaderConfig {
                 dadosOrigem.setPkCorretor(rs.getInt("PK_CORRETOR"));
                 dadosOrigem.setNmCorretor(rs.getString("NM_CORRETOR"));
                 dadosOrigem.setCpfCorretor(rs.getString("CPF_CORRETOR"));
+                dadosOrigem.setCodProduto(rs.getInt("COD_PRODUTO"));
                 dadosOrigem.setDscProduto(rs.getString("DSC_PRODUTO"));
                 dadosOrigem.setVlrProduto(rs.getDouble("VLR_PRODUTO"));
                 dadosOrigem.setCorretorPkSeguradora(rs.getInt("CORRETOR_PK_SEGURADORA"));

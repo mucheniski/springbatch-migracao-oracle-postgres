@@ -8,6 +8,7 @@ public class DadosOrigem {
     private Integer pkCorretor;
     private String nmCorretor;
     private String cpfCorretor;
+    private Integer codProduto;
     private String dscProduto;
     private Double vlrProduto;
     private Integer corretorPkSeguradora;

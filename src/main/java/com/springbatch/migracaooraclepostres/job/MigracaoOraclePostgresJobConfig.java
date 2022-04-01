@@ -20,11 +20,13 @@ public class MigracaoOraclePostgresJobConfig {
     @Bean
     public Job migracaoOraclePostgresJob(
             @Qualifier("migracaoCorretorStep") Step migracaoCorretorStep,
-            @Qualifier("migracaoSeguradoraStep") Step migracaoSeguradoraStep) {
+            @Qualifier("migracaoSeguradoraStep") Step migracaoSeguradoraStep,
+            @Qualifier("migracaoProdutoStep") Step migracaoProdutoStep) {
         return jobBuilderFactory
                 .get("migracaoOraclePostgresJob")
                 .start(migracaoCorretorStep)
                 .next(migracaoSeguradoraStep)
+                .next(migracaoProdutoStep)
                 .incrementer(new RunIdIncrementer())
                 .build();
     }

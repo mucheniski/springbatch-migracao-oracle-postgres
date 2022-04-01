@@ -8,6 +8,6 @@ public class Produto {
     private Integer id;
     private String descricao;
     private Double valor;
-    private Seguradora seguradora;
+    private Integer seguradoraId;
 
 }
