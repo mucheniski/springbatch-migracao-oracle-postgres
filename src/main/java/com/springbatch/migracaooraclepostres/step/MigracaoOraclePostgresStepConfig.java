@@ -17,16 +17,12 @@ public class MigracaoOraclePostgresStepConfig {
 
     @Bean
     public Step migracaoOraclePostgresStep(
-//            ItemStreamReader<DadosOrigem> buscarPessoasReader,
-//            ItemWriter<DadosOrigem> pessoaDestinoWriter
             ItemReader<DadosOrigem> dadosOrigemReader,
             ItemWriter<DadosOrigem> dadosOrigemWriter
     ){
         return stepBuilderFactory
                 .get("migracaoOraclePostgresStep")
                 .<DadosOrigem, DadosOrigem>chunk(1)
-//                .reader(buscarPessoasReader)
-//                .writer(pessoaDestinoWriter)
                 .reader(dadosOrigemReader)
                 .writer(dadosOrigemWriter)
                 .build();
