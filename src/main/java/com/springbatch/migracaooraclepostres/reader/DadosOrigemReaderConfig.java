@@ -20,6 +20,7 @@ public class DadosOrigemReaderConfig {
             "\t   CORRET_SEG_PROD.CPF_CORRETOR,\n" +
             "\t   CORRET_SEG_PROD.DSC_PRODUTO,\n" +
             "\t   CORRET_SEG_PROD.VLR_PRODUTO,\n" +
+            "\t   CORRET_SEG_PROD.PK_SEGURADORA CORRETOR_PK_SEGURADORA,\n" +
             "\t   SEGURADORA.PK_SEGURADORA,\n" +
             "\t   SEGURADORA.NM_SEGURADORA,\n" +
             "\t   SEGURADORA.CIDADE,\n" +
@@ -51,6 +52,16 @@ public class DadosOrigemReaderConfig {
                 DadosOrigem dadosOrigem = new DadosOrigem();
                 dadosOrigem.setPkCorretor(rs.getInt("PK_CORRETOR"));
                 dadosOrigem.setNmCorretor(rs.getString("NM_CORRETOR"));
+                dadosOrigem.setCpfCorretor(rs.getString("CPF_CORRETOR"));
+                dadosOrigem.setDscProduto(rs.getString("DSC_PRODUTO"));
+                dadosOrigem.setVlrProduto(rs.getDouble("VLR_PRODUTO"));
+                dadosOrigem.setCorretorPkSeguradora(rs.getInt("CORRETOR_PK_SEGURADORA"));
+                dadosOrigem.setPkSeguradora(rs.getInt("PK_SEGURADORA"));
+                dadosOrigem.setNmSeguradora(rs.getString("NM_SEGURADORA"));
+                dadosOrigem.setCidade(rs.getString("CIDADE"));
+                dadosOrigem.setEstado(rs.getString("ESTADO"));
+                dadosOrigem.setPkMatriz(rs.getInt("PK_MATRIZ"));
+                dadosOrigem.setRazaoSocial(rs.getString("RAZAO_SOCIAL"));
                 return dadosOrigem;
 
             }
