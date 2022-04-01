@@ -30,21 +30,4 @@ public class DataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
-//    @Bean(name = "entityManagerFactory")
-//    public LocalContainerEntityManagerFactoryBean entityManagerFactory(@Qualifier("origemDataSource") DataSource dataSource) {
-//
-//        Map<String, Object> properties = new HashMap<>();
-//        properties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-//        properties.put("hibernate.temp.use_jdbc_metadata_defaults", "false");
-//        properties.put("driver-class-name","oracle.jdbc.OracleDriver");
-//
-//        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-//        em.setDataSource(dataSource);
-//        em.setPackagesToScan("com.springbatch.migracaooraclepostres.origem");
-//        em.setJpaPropertyMap(properties);
-//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//        em.setJpaVendorAdapter(vendorAdapter);
-//        return em;
-//    }
-    
 }
