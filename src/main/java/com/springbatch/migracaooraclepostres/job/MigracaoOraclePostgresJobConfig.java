@@ -17,10 +17,10 @@ public class MigracaoOraclePostgresJobConfig {
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job migracaoOraclePostgresJob(Step migracaoOraclePostgresStep) {
+    public Job migracaoOraclePostgresJob(Step migracaoCorretorStep) {
         return jobBuilderFactory
                 .get("migracaoOraclePostgresJob")
-                .start(migracaoOraclePostgresStep)
+                .start(migracaoCorretorStep)
                 .incrementer(new RunIdIncrementer())
                 .build();
     }
