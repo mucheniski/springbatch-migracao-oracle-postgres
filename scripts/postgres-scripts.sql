@@ -21,6 +21,7 @@ CREATE TABLE public.seguradora (
   nome_fantasia varchar NOT NULL,
   cidade varchar NOT NULL,
   estado varchar NOT NULL,
+  matriz_id int4 NOT NULL,
 CONSTRAINT seguradora_pk PRIMARY KEY (id)
 );
 

@@ -12,6 +12,7 @@ public class Seguradora {
     private String nomeFantasia;
     private String cidade;
     private String estado;
+    private Integer matrizId;
     private List<Corretor> corretores = new ArrayList<>();
 
     public void addCorretor(Corretor corretor) {

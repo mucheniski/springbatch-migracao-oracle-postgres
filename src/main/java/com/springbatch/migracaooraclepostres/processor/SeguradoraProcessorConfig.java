@@ -3,6 +3,7 @@ package com.springbatch.migracaooraclepostres.processor;
 import com.springbatch.migracaooraclepostres.destino.domain.Corretor;
 import com.springbatch.migracaooraclepostres.destino.domain.Seguradora;
 import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
+import com.springbatch.migracaooraclepostres.origem.domain.SeguradoraOrigem;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,26 +12,17 @@ import org.springframework.context.annotation.Configuration;
 public class SeguradoraProcessorConfig {
 
     @Bean
-    public ItemProcessor<DadosOrigem, Seguradora> seguradoraProcessor() {
+    public ItemProcessor<SeguradoraOrigem, Seguradora> seguradoraProcessor() {
 
-        return new ItemProcessor<DadosOrigem, Seguradora>() {
+        return new ItemProcessor<SeguradoraOrigem, Seguradora>() {
             @Override
-            public Seguradora process(DadosOrigem dadosOrigem) throws Exception {
+            public Seguradora process(SeguradoraOrigem seguradoraOrigem) throws Exception {
                 Seguradora seguradora = new Seguradora();
-                seguradora.setId(dadosOrigem.getPkSeguradora());
-                seguradora.setNomeFantasia(dadosOrigem.getNmSeguradora());
-                seguradora.setEstado(dadosOrigem.getEstado());
-                seguradora.setCidade(dadosOrigem.getCidade());
-
-                if (seguradora.getId() == dadosOrigem.getCorretorPkSeguradora()) {
-                    Corretor corretor = new Corretor();
-                    corretor.setId(dadosOrigem.getPkCorretor());
-                    corretor.setNome(dadosOrigem.getNmCorretor());
-                    corretor.setCpf(dadosOrigem.getCpfCorretor());
-                    corretor.setPkSeguradora(dadosOrigem.getCorretorPkSeguradora());
-                    seguradora.addCorretor(corretor);
-                }
-
+                seguradora.setId(seguradoraOrigem.getPkSeguradora());
+                seguradora.setNomeFantasia(seguradoraOrigem.getNmSeguradora());
+                seguradora.setEstado(seguradoraOrigem.getEstado());
+                seguradora.setCidade(seguradoraOrigem.getCidade());
+                seguradora.setMatrizId(seguradoraOrigem.getPkMatriz());
                 return seguradora;
             }
         };
