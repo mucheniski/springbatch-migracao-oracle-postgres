@@ -1,6 +1,7 @@
 package com.springbatch.migracaooraclepostres.step;
 
 import com.springbatch.migracaooraclepostres.destino.domain.Corretor;
+import com.springbatch.migracaooraclepostres.origem.domain.CorretorOrigem;
 import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -19,14 +20,14 @@ public class MigracaoCorretorStepConfig {
 
     @Bean
     public Step migracaoCorretorStep(
-            ItemReader<DadosOrigem> dadosOrigemReader,
-            ItemProcessor<DadosOrigem, Corretor> corretorProcessor,
+            ItemReader<CorretorOrigem> dadosCorretorOrigemReader,
+            ItemProcessor<CorretorOrigem, Corretor> corretorProcessor,
             ItemWriter<Corretor> corretorWriter
     ){
         return stepBuilderFactory
                 .get("migracaoCorretorStep")
-                .<DadosOrigem, Corretor>chunk(1)
-                .reader(dadosOrigemReader)
+                .<CorretorOrigem, Corretor>chunk(1)
+                .reader(dadosCorretorOrigemReader)
                 .processor(corretorProcessor)
                 .writer(corretorWriter)
                 .build();
