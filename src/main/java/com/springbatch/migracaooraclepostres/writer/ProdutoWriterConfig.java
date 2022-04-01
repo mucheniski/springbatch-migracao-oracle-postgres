@@ -12,13 +12,9 @@ import org.springframework.context.annotation.Configuration;
 public class ProdutoWriterConfig {
 
 
-    String sqlInsertCorretor = " INSERT INTO public.corretor\n" +
-                        " (id, nome, cpf)\n" +
-                        " VALUES(?, ?, ?)";
-
-    String sqlInsertCorrtorSeguradora = " INSERT INTO public.corretor_seguradora\n" +
-                                        " (id_corretor, id_seguradora)\n" +
-                                        " VALUES(?, ?)";
+    String sqlInsertProduto = " INSERT INTO public.produto\n" +
+                                " (id, descricao, valor, id_seguradora)\n" +
+                                " VALUES(?, ?, ?, ?);\n";
 
 //    @Bean
 //    public JdbcBatchItemWriter<Corretor> dadosCorretorWriter(@Qualifier("destinoDataSource") DataSource dataSource){

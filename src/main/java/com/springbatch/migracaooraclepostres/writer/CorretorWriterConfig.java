@@ -6,10 +6,13 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Slf4j
 @Configuration
 public class CorretorWriterConfig {
-
 
     String sqlInsertCorretor = " INSERT INTO public.corretor\n" +
                         " (id, nome, cpf)\n" +
@@ -40,14 +43,13 @@ public class CorretorWriterConfig {
 //    }
 
 
-
     /**
      * Usado apenas para testar se os dados estao sendo retornados da base origem corretamente
      */
-    @Bean
-    public ItemWriter<Corretor> corretorWriter() {
-        log.info("==========DADOS DOS CORRETORES==========");
-        return itens -> itens.forEach(System.out::println);
-    }
+//    @Bean
+//    public ItemWriter<Corretor> corretorWriter() {
+//        log.info("==========DADOS DOS CORRETORES==========");
+//        return itens -> itens.forEach(System.out::println);
+//    }
 
 }

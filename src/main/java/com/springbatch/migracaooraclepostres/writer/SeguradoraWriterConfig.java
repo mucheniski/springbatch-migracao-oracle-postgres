@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 public class SeguradoraWriterConfig {
 
 
-    String sqlInsertCorretor = " INSERT INTO public.corretor\n" +
-                        " (id, nome, cpf)\n" +
-                        " VALUES(?, ?, ?)";
+    String sqlInsertSeguradora = " IINSERT INTO public.seguradora\n" +
+                                " (id, nome_fantasia, cidade, estado)\n" +
+                                " VALUES(?, ?, ?, ?)\n";
 
     String sqlInsertCorrtorSeguradora = " INSERT INTO public.corretor_seguradora\n" +
                                         " (id_corretor, id_seguradora)\n" +
