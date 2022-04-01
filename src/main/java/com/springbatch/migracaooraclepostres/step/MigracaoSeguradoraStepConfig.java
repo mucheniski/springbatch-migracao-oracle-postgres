@@ -1,6 +1,6 @@
 package com.springbatch.migracaooraclepostres.step;
 
-import com.springbatch.migracaooraclepostres.destino.domain.Corretor;
+import com.springbatch.migracaooraclepostres.destino.domain.Seguradora;
 import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -12,23 +12,23 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MigracaoCorretorStepConfig {
+public class MigracaoSeguradoraStepConfig {
 
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Step migracaoCorretorStep(
+    public Step migracaoSeguradoraStep(
             ItemReader<DadosOrigem> dadosOrigemReader,
-            ItemProcessor<DadosOrigem, Corretor> corretorProcessor,
-            ItemWriter<Corretor> corretorWriter
+            ItemProcessor<DadosOrigem, Seguradora> seguradoraProcessor,
+            ItemWriter<Seguradora> seguradoraWriter
     ){
         return stepBuilderFactory
-                .get("migracaoCorretorStep")
-                .<DadosOrigem, Corretor>chunk(1)
+                .get("migracaoSeguradoraStep")
+                .<DadosOrigem, Seguradora>chunk(1)
                 .reader(dadosOrigemReader)
-                .processor(corretorProcessor)
-                .writer(corretorWriter)
+                .processor(seguradoraProcessor)
+                .writer(seguradoraWriter)
                 .build();
     }
 

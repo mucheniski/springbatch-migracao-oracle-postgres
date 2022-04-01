@@ -14,4 +14,8 @@ public class Seguradora {
     private String estado;
     private List<Corretor> corretores = new ArrayList<>();
 
+    public void addCorretor(Corretor corretor) {
+        corretores.add(corretor);
+    }
+
 }
