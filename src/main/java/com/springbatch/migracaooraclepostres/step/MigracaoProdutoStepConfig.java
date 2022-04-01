@@ -2,6 +2,7 @@ package com.springbatch.migracaooraclepostres.step;
 
 import com.springbatch.migracaooraclepostres.destino.domain.Produto;
 import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
+import com.springbatch.migracaooraclepostres.origem.domain.ProdutoOrigem;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemProcessor;
@@ -19,14 +20,14 @@ public class MigracaoProdutoStepConfig {
 
     @Bean
     public Step migracaoProdutoStep(
-            ItemReader<DadosOrigem> dadosOrigemReader,
-            ItemProcessor<DadosOrigem, Produto> produtoProcessor,
+            ItemReader<ProdutoOrigem> produtoOrigemReader,
+            ItemProcessor<ProdutoOrigem, Produto> produtoProcessor,
             ItemWriter<Produto> produtoWriter
     ){
         return stepBuilderFactory
                 .get("migracaoProdutoStep")
-                .<DadosOrigem, Produto>chunk(1)
-                .reader(dadosOrigemReader)
+                .<ProdutoOrigem, Produto>chunk(1)
+                .reader(produtoOrigemReader)
                 .processor(produtoProcessor)
                 .writer(produtoWriter)
                 .build();

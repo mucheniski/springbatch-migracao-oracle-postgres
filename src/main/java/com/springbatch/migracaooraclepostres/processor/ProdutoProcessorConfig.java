@@ -4,6 +4,7 @@ import com.springbatch.migracaooraclepostres.destino.domain.Corretor;
 import com.springbatch.migracaooraclepostres.destino.domain.Produto;
 import com.springbatch.migracaooraclepostres.destino.domain.Seguradora;
 import com.springbatch.migracaooraclepostres.origem.domain.DadosOrigem;
+import com.springbatch.migracaooraclepostres.origem.domain.ProdutoOrigem;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,16 +13,16 @@ import org.springframework.context.annotation.Configuration;
 public class ProdutoProcessorConfig {
 
     @Bean
-    public ItemProcessor<DadosOrigem, Produto> produtoProcessor() {
+    public ItemProcessor<ProdutoOrigem, Produto> produtoProcessor() {
 
-        return new ItemProcessor<DadosOrigem, Produto>() {
+        return new ItemProcessor<ProdutoOrigem, Produto>() {
             @Override
-            public Produto process(DadosOrigem dadosOrigem) throws Exception {
+            public Produto process(ProdutoOrigem produtoOrigem) throws Exception {
                 Produto produto = new Produto();
-                produto.setId(dadosOrigem.getCodProduto());
-                produto.setDescricao(dadosOrigem.getDscProduto());
-                produto.setValor(dadosOrigem.getVlrProduto());
-                produto.setSeguradoraId(dadosOrigem.getPkSeguradora());
+                produto.setId(produtoOrigem.getCodProduto());
+                produto.setDescricao(produtoOrigem.getDscProduto());
+                produto.setValor(produtoOrigem.getVlrProduto());
+                produto.setSeguradoraId(produtoOrigem.getPkSeguradora());
                 return produto;
             }
         };
