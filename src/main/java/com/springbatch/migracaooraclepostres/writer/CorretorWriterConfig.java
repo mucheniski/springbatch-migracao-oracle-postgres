@@ -46,10 +46,10 @@ public class CorretorWriterConfig {
     /**
      * Usado apenas para testar se os dados estao sendo retornados da base origem corretamente
      */
-//    @Bean
-//    public ItemWriter<Corretor> corretorWriter() {
-//        log.info("==========DADOS DOS CORRETORES==========");
-//        return itens -> itens.forEach(System.out::println);
-//    }
+    @Bean
+    public ItemWriter<Corretor> corretorWriter() {
+        log.info("==========DADOS DOS CORRETORES==========");
+        return itens -> itens.forEach(System.out::println);
+    }
 
 }
