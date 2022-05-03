@@ -27,8 +27,8 @@ public class MigracaoOraclePostgresJobConfig {
                 .get("migracaoOraclePostgresJob")
                 .start(migracaoCorretorStep)
                 .next(migracaoSeguradoraStep)
-                .next(migracaoProdutoStep)
-                .next(migracaoCorretorSeguradoraStep)
+//                .next(migracaoProdutoStep)
+//                .next(migracaoCorretorSeguradoraStep)
                 .incrementer(new RunIdIncrementer())
                 .build();
     }

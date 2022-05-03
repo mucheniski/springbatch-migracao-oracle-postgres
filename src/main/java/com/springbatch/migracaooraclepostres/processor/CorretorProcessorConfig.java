@@ -16,9 +16,9 @@ public class CorretorProcessorConfig {
             @Override
             public Corretor process(CorretorOrigem corretorOrigem) throws Exception {
                 Corretor corretor = new Corretor();
-                corretor.setId(corretorOrigem.getPkCorretor());
                 corretor.setNome(corretorOrigem.getNmCorretor());
                 corretor.setCpf(corretorOrigem.getCpfCorretor());
+                corretor.setIdLegado(corretorOrigem.getPkCorretor());
                 return corretor;
             }
         };

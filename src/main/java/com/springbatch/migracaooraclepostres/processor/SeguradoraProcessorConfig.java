@@ -16,11 +16,11 @@ public class SeguradoraProcessorConfig {
             @Override
             public Seguradora process(SeguradoraOrigem seguradoraOrigem) throws Exception {
                 Seguradora seguradora = new Seguradora();
-                seguradora.setId(seguradoraOrigem.getPkSeguradora());
                 seguradora.setNomeFantasia(seguradoraOrigem.getNmSeguradora());
                 seguradora.setEstado(seguradoraOrigem.getEstado());
                 seguradora.setCidade(seguradoraOrigem.getCidade());
                 seguradora.setMatrizId(seguradoraOrigem.getPkMatriz());
+                seguradora.setIdLegado(seguradoraOrigem.getPkSeguradora());
                 return seguradora;
             }
         };

@@ -21,7 +21,7 @@ public class SeguradoraWriterConfig {
 
 
     String sqlInsertSeguradora = " INSERT INTO public.seguradora\n" +
-                                " (id, nome_fantasia, cidade, estado, matriz_id)\n" +
+                                " (nome_fantasia, cidade, estado, matriz_id, id_legado)\n" +
                                 " VALUES(?, ?, ?, ?, ?)\n";
 
     @Bean
@@ -37,11 +37,11 @@ public class SeguradoraWriterConfig {
         return new ItemPreparedStatementSetter<Seguradora>() {
             @Override
             public void setValues(Seguradora seguradora, PreparedStatement preparedStatement) throws SQLException {
-                preparedStatement.setInt(1, seguradora.getId());
-                preparedStatement.setString(2, seguradora.getNomeFantasia());
-                preparedStatement.setString(3, seguradora.getCidade());
-                preparedStatement.setString(4, seguradora.getEstado());
-                preparedStatement.setInt(5, seguradora.getMatrizId());
+                preparedStatement.setString(1, seguradora.getNomeFantasia());
+                preparedStatement.setString(2, seguradora.getCidade());
+                preparedStatement.setString(3, seguradora.getEstado());
+                preparedStatement.setInt(4, seguradora.getMatrizId());
+                preparedStatement.setInt(5, seguradora.getIdLegado());
             }
         };
     }

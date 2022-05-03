@@ -22,7 +22,7 @@ import java.util.Set;
 public class CorretorWriterConfig {
 
     String sqlInsertCorretor = " INSERT INTO public.corretor\n" +
-                        " (id, nome, cpf)\n" +
+                        " (nome, cpf, id_legado)\n" +
                         " VALUES(?, ?, ?)";
 
     @Bean
@@ -38,9 +38,9 @@ public class CorretorWriterConfig {
         return new ItemPreparedStatementSetter<Corretor>() {
             @Override
             public void setValues(Corretor corretor, PreparedStatement preparedStatement) throws SQLException {
-                preparedStatement.setInt(1, corretor.getId());
-                preparedStatement.setString(2, corretor.getNome());
-                preparedStatement.setString(3, corretor.getCpf());
+                preparedStatement.setString(1, corretor.getNome());
+                preparedStatement.setString(2, corretor.getCpf());
+                preparedStatement.setInt(3, corretor.getIdLegado());
             }
         };
     }
