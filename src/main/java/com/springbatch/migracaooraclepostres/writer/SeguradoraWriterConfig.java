@@ -47,7 +47,6 @@ public class SeguradoraWriterConfig {
     }
 
 
-
     /**
      * Usado apenas para testar se os dados estao sendo retornados da base origem corretamente
      */

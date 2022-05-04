@@ -20,8 +20,9 @@ import java.sql.SQLException;
 public class ProdutoWriterConfig {
 
 
+
     String sqlInsertProduto = " INSERT INTO public.produto\n" +
-                              " (id, descricao, valor, id_seguradora)\n" +
+                              " (descricao, valor, id_seguradora, id_legado)\n" +
                               " VALUES(?, ?, ?, ?);\n";
 
     @Bean
@@ -37,10 +38,11 @@ public class ProdutoWriterConfig {
         return new ItemPreparedStatementSetter<Produto>() {
             @Override
             public void setValues(Produto produto, PreparedStatement preparedStatement) throws SQLException {
-                preparedStatement.setInt(1, produto.getId());
-                preparedStatement.setString(2, produto.getDescricao());
-                preparedStatement.setDouble(3, produto.getValor());
-                preparedStatement.setInt(4, produto.getSeguradoraId());
+                preparedStatement.setString(1, produto.getDescricao());
+                preparedStatement.setDouble(2, produto.getValor());
+                // TODO: Implementar o nono id da seguradora
+//                preparedStatement.setInt(3, produto.getSeguradoraId());
+                preparedStatement.setInt(4, produto.getIdLegado());
             }
         };
     }
