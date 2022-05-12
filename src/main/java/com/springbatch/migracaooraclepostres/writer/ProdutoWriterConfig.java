@@ -40,7 +40,7 @@ public class ProdutoWriterConfig {
             public void setValues(Produto produto, PreparedStatement preparedStatement) throws SQLException {
                 preparedStatement.setString(1, produto.getDescricao());
                 preparedStatement.setDouble(2, produto.getValor());
-                // TODO: Implementar o nono id da seguradora
+                // TODO: Implementar o novo id da seguradora
 //                preparedStatement.setInt(3, produto.getSeguradoraId());
                 preparedStatement.setInt(4, produto.getIdLegado());
             }

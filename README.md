@@ -59,4 +59,6 @@ On the connection, right-click -> Edit connection -> Connection settings -> on t
 ![](/img/showalldatabasespostgres.png)  
 
 ## UML base destino  
-![](/img/umldestino.png)
+![](/img/umldestino.png)  
+
+TODO: Implementar um classificador para registros inválidos como no exemplo da aula 61. Prática: Escritor com classificadores - ClassifierCompositeItemWriter
